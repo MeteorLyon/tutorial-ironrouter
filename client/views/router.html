@@ -1,0 +1,67 @@
+<head>
+    <title>router</title>
+</head>
+
+<template name="layout">
+    <p>router hooks, and the multiple layout yields</p>
+
+    {{> menu}}
+
+    {{> yield}}
+</template>
+
+<template name="menu">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Test Iron Router</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/" class="{{isActive '/'}}">home</a></li>
+                <li><a href="/one" class="{{isActive '/one'}}">page 1</a></li>
+                <li><a href="/two" class="{{isActive '/two'}}">page 2</a></li>
+                <li><a href="/subs" class="{{isActive '/subs'}}">subs</a></li>
+                <li><a href="/waiton" class="{{isActive '/waiton'}}">waitOn</a></li>
+            </ul>
+            <p class="navbar-text navbar-righ">{{getClickCount}} click</p>
+        </div>
+    </nav >
+</template>
+
+<template name="home">
+    <h2>HOME</h2>
+</template>
+
+<template name="page_1">
+    <h2>PAGE 1</h2>
+</template>
+
+<template name="page_2">
+    <h2>PAGE 2</h2>
+</template>
+
+<template name="subs">
+    <h2>PAGE PUBSUB</h2>
+
+    {{> cites}}
+</template>
+
+<template name="waiton">
+    <h2>PAGE WAITON</h2>
+
+    {{> cites}}
+</template>
+
+<template name="cites">
+    {{#each getCitations}}
+        <blockquote>
+            <p>{{cite}}</p>
+            {{#if hasAuthor}}
+                <footer>{{author}}
+                    {{#if hasSource}}, <cite>{{source}}</cite>{{/if}}
+                    {{#if hasDate}}, {{date}}{{/if}}
+                </footer>
+            {{/if}}
+        </blockquote>
+    {{/each}}
+</template>

@@ -1,0 +1,1 @@
+Session.setDefault('clickCount', 0);
