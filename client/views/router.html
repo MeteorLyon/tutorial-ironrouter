@@ -8,6 +8,10 @@
     {{> menu}}
 
     {{> yield}}
+
+    <footer>
+        {{> yield "footer"}}
+    </footer>
 </template>
 
 <template name="menu">
@@ -41,15 +45,15 @@
 </template>
 
 <template name="subs">
-    <h2>PAGE PUBSUB</h2>
+    <h2>PUB/SUB</h2>
 
     {{> cites}}
 </template>
 
 <template name="waiton">
-    <h2>PAGE WAITON</h2>
+    <h2>WAITON</h2>
 
-    {{> cites}}
+    {{> marvel_characters}}
 </template>
 
 <template name="cites">
@@ -64,4 +68,31 @@
             {{/if}}
         </blockquote>
     {{/each}}
+</template>
+
+<template name="marvel_characters">
+  <div class="row">
+    {{#each getCharacters}}
+    <div id="character_{{id}}" class="col-xs-2">
+      <div class="thumbnail">
+        <img src="{{getThumb 'portrait_medium'}}" alt="{{name}}">
+        <div class="caption">
+          <h3>{{name}}</h3>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</template>
+
+<template name="cites_footer">
+  <footer>
+    Thanks to Papillotes Revillon for their cites
+  </footer>
+</template>
+
+<template name="marvel_footer">
+  <footer>
+    Great thanks to Marvel API for data
+  </footer>
 </template>
