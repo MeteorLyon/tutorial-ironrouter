@@ -55,7 +55,14 @@ Meteor.startup(function () {
                 {cite: "Si les cieux pleurent, la terre vivra.", author: "Proverbe hawaiien"},
                 {cite: "Tout ce que tu feras sera dérisoire, mais il est essentiel que tu le fasses.", author: "Gandhi"},
                 {cite: "La rose n'a d'épines que pour celui qui veut la cueillir.", author: "Proverbe chinois"},
-                {cite: "Pour savoir où l'on va, il faut savoir où l'on est.", author: "Proverbe tchadien"}
+                {cite: "Pour savoir où l'on va, il faut savoir où l'on est.", author: "Proverbe tchadien"},
+                {cite: "Un homme sans culture, tel un chat sans moustaches, se sent perdu.", author: "Anonyme"},
+                {cite: "La science décrit la nature, la poésie la peint et l'embellit.", author: "Georges-Louis Leclerc de Buffon"},
+                {cite: "Une fleur fane même si on l'aime ; une mauvaise herbe croît même si on ne l'aime pas.", author: "Dôgen"},
+                {cite: "Quand tu lances la flèche de la vérité, trempe toujours la pointe dans du miel.", author: "Proverbe arabe"},
+                {cite: "L'espérance d'une joie est presque égale à la joie.", author: "William Shakespeare"},
+                {cite: "Qui donne ne doit jamais s'en souvenir. Qui reçoit ne doit jamais oublier.", author: "Proverbe hébreu"},
+                {cite: "Une fois la partie terminée, le roi et le pion retournent dans la même boîte.", author: "Proverbe italien"}
             ],
             remove = true;
 
