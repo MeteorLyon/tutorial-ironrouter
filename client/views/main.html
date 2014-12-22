@@ -24,8 +24,10 @@
                 <li><a href="/" class="{{isActive '/'}}">home</a></li>
                 <li><a href="/one" class="{{isActive '/one'}}">page 1</a></li>
                 <li><a href="/two" class="{{isActive '/two'}}">page 2</a></li>
-                <li><a href="/subs" class="{{isActive '/subs'}}">subs</a></li>
-                <li><a href="/waiton" class="{{isActive '/waiton'}}">waitOn</a></li>
+                <li><a href="{{pathFor 'subs'}}" class="{{isActive '/subs'}}">subs</a></li>
+                <li><a href="{{pathFor 'waiton'}}" class="{{isActive '/waiton'}}">waitOn</a></li>
+                <li><a href="{{pathFor 'subsonbefore'}}" class="{{isActive '/subsonbefore'}}">subsOnBefore</a></li>
+                <li><a href="{{pathFor 'mix'}}" class="{{isActive '/mix'}}">mix</a></li>
             </ul>
             <p class="navbar-text navbar-righ">{{getClickCount}} click</p>
         </div>
@@ -45,7 +47,7 @@
 </template>
 
 <template name="subs">
-    <h2>PUB/SUB</h2>
+    <h2>PUB/SUB with subs in subscriptions hook</h2>
 
     {{> cites}}
 </template>
@@ -54,6 +56,20 @@
     <h2>WAITON</h2>
 
     {{> marvel_characters}}
+</template>
+
+<template name="subsonbefore">
+    <h2>PUB/SUB with subs in onBeforeAction hook</h2>
+
+    {{> cites}}
+</template>
+
+<template name="mix">
+    <h2>PUB/SUB with subs in subscriptions and onBeforeAction hook</h2>
+
+    <div class="col-xs-6">{{>fakeData1}}</div>
+
+    <div class="col-xs-6">{{>fakeData2}}</div>
 </template>
 
 <template name="cites">
@@ -85,14 +101,26 @@
   </div>
 </template>
 
+<template name="fakeData1">
+    {{#each getData}}
+    <div class="row">
+      {{content}}
+    </div>
+    {{/each}}
+</template>
+
+<template name="fakeData2">
+    {{#each getData}}
+    <div class="row">
+      {{content}} ({{author.name}})
+    </div>
+    {{/each}}
+</template>
+
 <template name="cites_footer">
-  <footer>
     Thanks to Papillotes Revillon for their cites
-  </footer>
 </template>
 
 <template name="marvel_footer">
-  <footer>
     Great thanks to Marvel API for data
-  </footer>
 </template>

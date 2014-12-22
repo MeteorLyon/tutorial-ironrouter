@@ -1,5 +1,19 @@
+Meteor.publish('router-fake-1', function() {
+   Meteor._sleepForMs(5000);
+   return FakeData1.find();
+});
+
+Meteor.publish('router-fake-2', function() {
+   return FakeData2.find();
+});
+
 Meteor.publish('router-citations', function() {
-    return Citations.find();
+   Meteor._sleepForMs(2000);
+   return Citations.find();
+});
+
+Meteor.publish('router-citations-onbefore', function() {
+   return Citations.find();
 });
 
 Meteor.publish('router-citations-for-waiton', function() {
@@ -63,5 +77,10 @@ Meteor.publish('router-citations-for-waiton', function() {
       Characters.insert(item);
   });
 
-  return Characters.find();
+  // is There any more data (paging ?)
+  // how to identify anonymous user
+  // Pager data must be removed each time you change page
+  // Pager.insert({user: , pageTitle: ,current: , prev: , next: , total: });
+  
+  return [Characters.find()/*, Pager.findOne({"content": "marvel"})*/];
 });

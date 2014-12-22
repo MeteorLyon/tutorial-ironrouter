@@ -1,3 +1,13 @@
+Template.cites.created = function () {
+  console.info('The template cites has been created.')  ;
+};
+Template.cites.rendered = function () {
+  console.info('The template cites has been rendered.')  ;
+};
+Template.cites.destroyed = function () {
+  console.info('The template cites has been destroyed.')  ;
+};
+
 Template.cites.helpers({
     getCitations: function() {
         var cites = Citations.find({});

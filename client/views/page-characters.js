@@ -1,3 +1,13 @@
+Template.marvel_characters.created = function () {
+  console.info('The template marvel_characters has been created.')  ;
+};
+Template.marvel_characters.rendered = function () {
+  console.info('The template marvel_characters has been rendered.')  ;
+};
+Template.marvel_characters.destroyed = function () {
+  console.info('The template marvel_characters has been destroyed.')  ;
+};
+
 Template.marvel_characters.helpers({
     getCharacters: function() {
         var chars = Characters.find({});
