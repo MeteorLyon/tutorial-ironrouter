@@ -9,11 +9,11 @@ Meteor.publish('router-fake-2', function() {
 
 Meteor.publish('router-citations', function() {
    Meteor._sleepForMs(2000);
-   return Citations.find();
+  return Citations.find({}, {sort: {author: 1, cite: 1}});
 });
 
 Meteor.publish('router-citations-onbefore', function() {
-   return Citations.find();
+   return Citations.find({}, {sort: {author: 1, cite: 1}});
 });
 
 Meteor.publish('router-citations-for-waiton', function() {
